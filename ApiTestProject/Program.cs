@@ -16,6 +16,9 @@ namespace ApiTestProject
             DeleteTest();
             HeadTest();
             GetWithQueryTest();
+            //PatchTest();
+            //OptionsTest();
+            //GetWithAuthtenticationTest();    
         }
 
         static void GetTest()
