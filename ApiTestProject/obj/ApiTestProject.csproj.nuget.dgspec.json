@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\ApiTestProject\\apitestproject\\ApiTestProject.csproj": {}
+    "C:\\ApiTestProject\\ApiTestProject\\ApiTestProject.csproj": {}
   },
   "projects": {
-    "C:\\ApiTestProject\\apitestproject\\ApiTestProject.csproj": {
+    "C:\\ApiTestProject\\ApiTestProject\\ApiTestProject.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\ApiTestProject\\apitestproject\\ApiTestProject.csproj",
+        "projectUniqueName": "C:\\ApiTestProject\\ApiTestProject\\ApiTestProject.csproj",
         "projectName": "ApiTestProject",
-        "projectPath": "C:\\ApiTestProject\\apitestproject\\ApiTestProject.csproj",
+        "projectPath": "C:\\ApiTestProject\\ApiTestProject\\ApiTestProject.csproj",
         "packagesPath": "C:\\Users\\Fernando Oliveira\\.nuget\\packages\\",
-        "outputPath": "C:\\ApiTestProject\\apitestproject\\obj\\",
+        "outputPath": "C:\\ApiTestProject\\ApiTestProject\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

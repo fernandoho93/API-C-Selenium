@@ -10,12 +10,12 @@ namespace ApiTestProject
             //Estudos de teste de API com c# e Selenium
             // Comente as funções que não serão utilizadas
 
-            GetTest();
-            PostTest();
-            PutTest();
-            DeleteTest();
-            HeadTest();
-            GetWithQueryTest();
+            //GetTest();
+            //PostTest();
+            //PutTest();
+            //DeleteTest();
+            //HeadTest();
+            //GetWithQueryTest();
             //PatchTest();
             //OptionsTest();
             //GetWithAuthtenticationTest();    
@@ -128,6 +128,31 @@ namespace ApiTestProject
             {
                 Console.WriteLine("Erro na requisição GET com parâmetros: " + response.StatusDescription);
             }
-        }    
+        }
+    
+        static void PatchTest(){
+            var client = new RestClient("https://jsonplaceholder.typicode.com");
+            var request = new RestRequest("/posts/1", Method.Patch);
+
+            request.AddJsonBody(new
+            {
+                title = "patched title"   
+            });  
+
+            RestResponse response = client.Execute(request);
+            Console.WriteLine(response.Content);
+
+            if (response.IsSuccessful)
+            {
+                Console.WriteLine("Requisição PATCH bem sucedida!");
+            }       
+            else
+            {
+                Console.WriteLine("Erro na requisição PATCH: " + response.StatusDescription); 
+            }  
+        }
+
+        //OptionsTest();
+        //GetWithAuthtenticationTest();       
     }
 }
