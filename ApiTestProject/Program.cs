@@ -153,6 +153,14 @@ namespace ApiTestProject
         }
 
         //OptionsTest();
-        //GetWithAuthtenticationTest();       
+        //GetWithAuthtenticationTest();
+
+        static void OptionsTest(){
+            var client = new RestClient("https://jsonplaceholder.typicode.com");
+            var request = new RestRequest("/posts", Method.Options);    
+
+            RestResponse response = client.Execute(request);
+            
+        }       
     }
 }
