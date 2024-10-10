@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "dgSpecHash": "BlPGNontTyiED49sS7SK1DGBHymXyuUqiuYcmw+Gm1YoPu/0BCuytAYGycEjAreCTm19uhmx6c5jNlEmLO0z3g==",
+  "success": true,
+  "projectFilePath": "C:\\ApiTestProject\\ApiTestProject\\ApiTestProject.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Fernando Oliveira\\.nuget\\packages\\restsharp\\112.0.0\\restsharp.112.0.0.nupkg.sha512",
+    "C:\\Users\\Fernando Oliveira\\.nuget\\packages\\selenium.webdriver\\4.24.0\\selenium.webdriver.4.24.0.nupkg.sha512",
+    "C:\\Users\\Fernando Oliveira\\.nuget\\packages\\selenium.webdriver.chromedriver\\128.0.6613.8600\\selenium.webdriver.chromedriver.128.0.6613.8600.nupkg.sha512",
+    "C:\\Users\\Fernando Oliveira\\.nuget\\packages\\system.text.encodings.web\\8.0.0\\system.text.encodings.web.8.0.0.nupkg.sha512",
+    "C:\\Users\\Fernando Oliveira\\.nuget\\packages\\system.text.json\\8.0.4\\system.text.json.8.0.4.nupkg.sha512"
+  ],
+  "logs": []
+}
