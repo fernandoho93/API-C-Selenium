@@ -18,6 +18,13 @@ namespace ApiTestProject
             PatchTest();
             OptionsTest();
             GetWithAuthtenticationTest();    
+                //PostTestWithInvalidData();
+                //PutTestWithInvalidId();
+                //DeleteTestWithInvalidId();
+                //OptionsTestForMultipleEndpoints();
+                //GetTestWithCustomHeaders();
+                //GetWithMultipleQueryParameters();
+                //GetWithInvalidAuthenticationTest();
         }
 
         static void GetTest()
