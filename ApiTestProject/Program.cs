@@ -17,7 +17,7 @@ namespace ApiTestProject
             //HeadTest();
             //GetWithQueryTest();
             //PatchTest();
-            //OptionsTest();
+            OptionsTest();
             //GetWithAuthtenticationTest();    
         }
 
@@ -152,7 +152,6 @@ namespace ApiTestProject
             }  
         }
 
-        //OptionsTest();
         //GetWithAuthtenticationTest();
 
         static void OptionsTest(){
@@ -160,7 +159,17 @@ namespace ApiTestProject
             var request = new RestRequest("/posts", Method.Options);    
 
             RestResponse response = client.Execute(request);
-            
+
+            Console.WriteLine("Allowed Methods: " + response.Headers.FirstOrDefault(x => x.Name == "Allow")?.Value);
+
+            if (response.IsSuccessful)
+            {
+                Console.WriteLine("Requisição OPTIONS bem sucedida!");
+            }
+            else
+            {
+                Console.WriteLine("Erro na requisição OPTIONS: " + response.StatusDescription);
+            }
         }       
     }
 }
