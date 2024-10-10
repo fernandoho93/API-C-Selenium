@@ -8,17 +8,16 @@ namespace ApiTestProject
         static void Main(string[] args)
         {
             //Estudos de teste de API com c# e Selenium
-            // Comente as funções que não serão utilizadas
 
-            //GetTest();
-            //PostTest();
-            //PutTest();
-            //DeleteTest();
-            //HeadTest();
-            //GetWithQueryTest();
-            //PatchTest();
+            GetTest();
+            PostTest();
+            PutTest();
+            DeleteTest();
+            HeadTest();
+            GetWithQueryTest();
+            PatchTest();
             OptionsTest();
-            //GetWithAuthtenticationTest();    
+            GetWithAuthtenticationTest();    
         }
 
         static void GetTest()
@@ -152,7 +151,7 @@ namespace ApiTestProject
             }  
         }
 
-        //GetWithAuthtenticationTest();
+        
 
         static void OptionsTest(){
             var client = new RestClient("https://jsonplaceholder.typicode.com");
@@ -170,6 +169,26 @@ namespace ApiTestProject
             {
                 Console.WriteLine("Erro na requisição OPTIONS: " + response.StatusDescription);
             }
-        }       
+        }    
+
+        static void GetWithAuthtenticationTest(){
+            var client = new RestClient("https://jsonplaceholder.typicode.com");
+            var request = new RestRequest("/posts/1", Method.Get);
+
+            //add token de aut
+            request.AddHeader("Authorization", "Bearer your_token_here");
+
+            RestResponse response = client.Execute(request);
+            Console.WriteLine(response.Content);
+
+            if (response.IsSuccessful)
+            {
+                Console.WriteLine("Requisição GET com autenticação bem-sucedida!");
+            }
+            else
+            {
+                Console.WriteLine("Erro na requisição GET com autentição: " + response.StatusDescription);  
+            }
+        }
     }
 }
