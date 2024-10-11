@@ -20,8 +20,8 @@ namespace ApiTestProject
             //GetWithAuthtenticationTest();   
             //PostTestWithInvalidData(); 
             //PutTestWithInvalidId();
-            DeleteTestWithInvalidId();
-                //OptionsTestForMultipleEndpoints();
+            //DeleteTestWithInvalidId();
+            OptionsTestForMultipleEndpoints();
                 //GetTestWithCustomHeaders();
                 //GetWithMultipleQueryParameters();
                 //GetWithInvalidAuthenticationTest();
@@ -248,6 +248,40 @@ namespace ApiTestProject
             if (!response.IsSuccessful) 
             {
                 Console.WriteLine("Requisição DELETE com ID Inexistente foi rejeitada: " + response.StatusDescription);
+            }
+        }
+
+        static void OptionsTestForMultipleEndpoints(){
+            var client = new RestClient("https://jsonplaceholder.typicode.com");
+
+            // Lista de endpoints para testar
+            var endpoints = new List<string> { "/posts", "/comments", "/albums", "/photos", "/todos", "/users" };
+
+            foreach (var endpoint in endpoints)
+            {	
+                Console.WriteLine("Testando OPTIONS para o endpoint: {endpoint}");
+
+                var request = new RestRequest(endpoint, Method.Options);
+                RestResponse response = client.Execute(request);
+
+                if (response.Headers != null)
+                {
+                    var allowHeader = response.Headers.FirstOrDefault(x => x.Name == "Allow")?.Value;
+                    Console.WriteLine("Metodos permitidos: " + allowHeader);
+                }
+                else
+                {
+                    Console.WriteLine("Erro: Os headers de resposta não foram encontrados.");
+                }
+
+                if (response.IsSuccessful) 
+                {
+                    Console.WriteLine("Requisição OPTIONS para o endpoint {endpoint} foi bem-sucedida: " + response.StatusDescription);
+                }
+                else
+                {
+                    Console.WriteLine("Requisição OPTIONS para o endpoint {endpoint} foi rejeitada: " + response.StatusDescription);
+                } 
             }
         }
     }
