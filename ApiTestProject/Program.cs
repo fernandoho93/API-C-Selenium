@@ -9,16 +9,16 @@ namespace ApiTestProject
         {
             //Estudos de teste de API com c# e Selenium
 
-            GetTest();
-            PostTest();
-            PutTest();
-            DeleteTest();
-            HeadTest();
-            GetWithQueryTest();
-            PatchTest();
-            OptionsTest();
-            GetWithAuthtenticationTest();    
-                //PostTestWithInvalidData();
+            //GetTest();
+            //PostTest();
+            //PutTest();
+            //DeleteTest();
+            //HeadTest();
+            //GetWithQueryTest();
+            //PatchTest();
+            //OptionsTest();
+            //GetWithAuthtenticationTest();   
+            //PostTestWithInvalidData(); 
                 //PutTestWithInvalidId();
                 //DeleteTestWithInvalidId();
                 //OptionsTestForMultipleEndpoints();
@@ -195,6 +195,26 @@ namespace ApiTestProject
             else
             {
                 Console.WriteLine("Erro na requisição GET com autentição: " + response.StatusDescription);  
+            }
+        }
+
+        static void PostTestWithInvalidData(){
+            var client = new RestClient("https://jsonplaceholder.typicode.com");
+            var request = new RestRequest("/posts", Method.Post);   
+
+            request.AddJsonBody(new
+            {
+                title = " ", //invalid title
+                body = "bar",
+                userId = 1
+            });
+
+            RestResponse response = client.Execute(request);
+            Console.WriteLine(response.Content);
+
+            if (response.IsSuccessful)
+            {
+                Console.WriteLine("Requisição POST com dados inválidos rejeitada com sucesso: " + response.StatusDescription);
             }
         }
     }
