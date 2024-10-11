@@ -19,8 +19,8 @@ namespace ApiTestProject
             //OptionsTest();
             //GetWithAuthtenticationTest();   
             //PostTestWithInvalidData(); 
-            PutTestWithInvalidId();
-                //DeleteTestWithInvalidId();
+            //PutTestWithInvalidId();
+            DeleteTestWithInvalidId();
                 //OptionsTestForMultipleEndpoints();
                 //GetTestWithCustomHeaders();
                 //GetWithMultipleQueryParameters();
@@ -236,6 +236,18 @@ namespace ApiTestProject
             if (!response.IsSuccessful)
             {
                 Console.WriteLine("Requisição PUT com ID Inexistente foi rejeitada: " + response.StatusDescription);
+            }
+        }
+
+        static void DeleteTestWithInvalidId(){
+            var client = new RestClient("https://jsonplaceholder.typicode.com");
+            var request = new RestRequest("/posts/99999999", Method.Delete); //esse ID não existe
+
+            RestResponse response = client.Execute(request);
+
+            if (!response.IsSuccessful) 
+            {
+                Console.WriteLine("Requisição DELETE com ID Inexistente foi rejeitada: " + response.StatusDescription);
             }
         }
     }
