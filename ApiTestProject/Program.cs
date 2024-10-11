@@ -21,8 +21,8 @@ namespace ApiTestProject
             //PostTestWithInvalidData(); 
             //PutTestWithInvalidId();
             //DeleteTestWithInvalidId();
-            OptionsTestForMultipleEndpoints();
-                //GetTestWithCustomHeaders();
+            //OptionsTestForMultipleEndpoints();
+            GetTestWithCustomHeaders();
                 //GetWithMultipleQueryParameters();
                 //GetWithInvalidAuthenticationTest();
         }
@@ -283,6 +283,16 @@ namespace ApiTestProject
                     Console.WriteLine("Requisição OPTIONS para o endpoint {endpoint} foi rejeitada: " + response.StatusDescription);
                 } 
             }
+        }
+
+        static void GetTestWithCustomHeaders(){
+            var client = new RestClient("https://jsonplaceholder.typicode.com");
+
+            //criando a requisiolçai dp get
+            var request = new RestRequest("/posts", Method.Get);
+
+            request.AddHeader("X-Custom-Header", "CustomHeaderValue");
+            request.AddHeader("AnotherHeader", "AnotherValue");
         }
     }
 }
